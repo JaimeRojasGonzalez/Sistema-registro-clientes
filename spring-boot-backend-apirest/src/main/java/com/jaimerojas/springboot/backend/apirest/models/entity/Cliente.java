@@ -88,4 +88,27 @@ public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Cliente(Long id, @NotEmpty @Size(min = 4, max = 12) String nombre, @NotEmpty String apellido,
+			@NotEmpty @Email String email, Date createAt) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.createAt = createAt;
+	}
+
+	public Cliente(@NotEmpty @Size(min = 4, max = 12) String nombre, @NotEmpty String apellido,
+			@NotEmpty @Email String email) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+	}
+
 }
