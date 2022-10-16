@@ -1,19 +1,19 @@
 <ul *ngIf="paginas?.length>0" class="pagination justify-content-center">
     <li class="page-item " *ngIf="paginador.number > 0" >
-        <a class="page-link bg-black border border-dark text-white" [routerLink]="['/clientes/page', paginador.number - 1]">&laquo;</a>
+        <a class="page-link bg-black border border-dark text-warning" [routerLink]="['/clientes/page', paginador.number - 1]">&laquo;</a>
     </li>
     <li [ngClass]="paginador.first?'disabled page-item':'page-item'">
-        <a class="page-link bg-dark border border-dark text-white" [routerLink]="['/clientes/page', 0]">Primera</a>
+        <a class="page-link bg-dark border border-dark text-warning" [routerLink]="['/clientes/page', 0]">Primera</a>
     </li>
 
     <li *ngFor="let pagina of paginas" class="page-item" [ngClass]="pagina-1 == paginador.number?'disabled':''">
-        <span class="page-link bg-secondary border border-dark text-white" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
-        <a class="page-link bg-dark border border-dark text-white" *ngIf="pagina-1 != paginador.number" [routerLink]="['/clientes/page', pagina-1]">{{pagina}}</a>
+        <span class="page-link bg-secondary border border-dark text-warning" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
+        <a class="page-link bg-dark border border-dark text-warning" *ngIf="pagina-1 != paginador.number" [routerLink]="['/clientes/page', pagina-1]">{{pagina}}</a>
     </li>
     <li [ngClass]="paginador.last?'disabled page-item':'page-item'">
-        <a class="page-link bg-dark border border-dark text-white" [routerLink]="['/clientes/page', paginador.totalPages-1]">Última</a>
+        <a class="page-link bg-dark border border-dark text-warning" [routerLink]="['/clientes/page', paginador.totalPages-1]">Última</a>
     </li>
     <li class="page-item" *ngIf="paginador.number < paginador.totalPages-1" >
-        <a class="page-link bg-black border border-dark text-white" [routerLink]="['/clientes/page', paginador.number+1]">&raquo;</a>
+        <a class="page-link bg-black border border-dark text-warning" [routerLink]="['/clientes/page', paginador.number+1]">&raquo;</a>
     </li>
 </ul>

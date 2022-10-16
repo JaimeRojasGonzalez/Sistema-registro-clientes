@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.jaimerojas.springboot.backend.apirest.models.entity.Cliente;
+import com.jaimerojas.springboot.backend.apirest.models.entity.Region;
 import com.jaimerojas.springboot.backend.apirest.service.iClienteService;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -137,6 +138,9 @@ public class ClienteRestController {
 			clienteActual.setApellido(cliente.getApellido());
 			clienteActual.setNombre(cliente.getNombre());
 			clienteActual.setEmail(cliente.getEmail());
+			clienteActual.setTelefono(cliente.getTelefono());
+			clienteActual.setFechaNac(cliente.getFechaNac());
+			clienteActual.setRegion(cliente.getRegion());
 			clienteActual.setCreateAt(cliente.getCreateAt());
 
 			clienteUpdate = clienteService.save(clienteActual);
@@ -171,5 +175,10 @@ public class ClienteRestController {
 
 		response.put("mensaje", "El cliente ha sido eliminado con éxito!");
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/clientes/regiones")
+	public List<Region> regiones() {
+		return clienteService.findAllRegiones();
 	}
 }
